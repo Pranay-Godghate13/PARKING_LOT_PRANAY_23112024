@@ -4,6 +4,6 @@ public class Truck extends Vehicle {
 
         public Truck(String regId,String color)
         {
-            super(new SpecifiedVehicle(),regId,color);
+            super(new SpecifiedVehicle(),regId,color,"Truck");
         }
 }

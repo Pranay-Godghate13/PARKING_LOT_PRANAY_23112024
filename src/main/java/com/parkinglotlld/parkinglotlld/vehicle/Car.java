@@ -4,7 +4,7 @@ public class Car extends Vehicle {
 
         public Car(String regId,String color)
         {
-            super(new SpecifiedVehicle(),regId,color);
+            super(new SpecifiedVehicle(),regId,color,"Car");
         }
     
 }
