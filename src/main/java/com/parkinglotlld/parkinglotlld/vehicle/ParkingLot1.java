@@ -14,9 +14,43 @@ public class ParkingLot1 implements BuildParking,ParkingLotFeatures {
     }
     public void park(Vehicle vehicle)
     {
+        Vacancy vacancy=null;
         String type=vehicle.type;
-        
-        System.out.println(vehicle.type+" is parked");
+        switch(type)
+        {
+            case "Truck":
+            vacancy=new TruckFreeCount();
+            break;
+            case "Bike":
+            vacancy=new BikeFreeCount();
+            break;
+            case "Car":
+            vacancy=new CarFreeCount();
+            break;
+
+        } 
+        int count=vacancy.CountFreeSlot(pl, floor, slot);
+        if(count==0)
+        System.out.println("No parking available");
+        else
+        {
+            Location location=null;
+            switch(type)
+            {
+                
+                case "Truck":
+                location=new TruckParkLocation();
+                break;
+                case "Bike":
+                location=new BikeParkLocation();
+                break;
+                case "Car":
+                location=new CarParkLocation();
+                break;
+
+            }
+            location.parkVehicle(pl, vehicle, floor, slot);   
+        }
     }
     public void unPark(Vehicle vehicle)
     {
