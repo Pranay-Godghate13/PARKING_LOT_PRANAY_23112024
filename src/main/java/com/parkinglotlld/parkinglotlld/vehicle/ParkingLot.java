@@ -15,7 +15,37 @@ public class ParkingLot implements BuildParking,ParkingLotFeatures {
 
     @Override
     public void park(Vehicle vehicle) {
-        
+        String type=vehicle.type;
+        ParkVehicle parkVehicle=null;
+        switch(type)
+        {
+            case "Car":
+            parkVehicle=new CarFindParking(3, this.slot,this.floor, this.pl,vehicle, new CommonSlotFinder());
+            break;
+            case "Bike":
+            parkVehicle=new BikeFindParking(1, 3,this.floor, this.pl,vehicle, new CommonSlotFinder());
+            break;
+            case "Truck":
+            parkVehicle=new TruckFindParking(0, 1,this.floor, this.pl,vehicle, new CommonSlotFinder());
+            break;
+
+        }
+        Pair location=parkVehicle.result;
+        int floor_no=location.floor;
+        int slot_no=location.slot;
+        if(floor_no!=-1 && slot_no!=-1)
+        {
+            pl[floor_no][slot_no]=vehicle;
+            Ticket parking_ticket=new Ticket(id,floor_no,slot_no);
+            String ticket=parking_ticket.createTicket();
+            System.out.println("Parked vehicle. Ticket ID: "+ticket);
+
+        }
+        else
+        {
+            System.out.println("Parking Lot Full");
+        }
+
     }
 
     @Override
