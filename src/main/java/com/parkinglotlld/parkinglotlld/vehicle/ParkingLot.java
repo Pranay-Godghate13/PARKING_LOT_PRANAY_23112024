@@ -36,7 +36,7 @@ public class ParkingLot implements BuildParking,ParkingLotFeatures {
         if(floor_no!=-1 && slot_no!=-1)
         {
             pl[floor_no][slot_no]=vehicle;
-            Ticket parking_ticket=new Ticket(id,floor_no,slot_no);
+            Ticket parking_ticket=new Ticket(id,floor_no+1,slot_no+1);
             String ticket=parking_ticket.createTicket();
             System.out.println("Parked vehicle. Ticket ID: "+ticket);
 
