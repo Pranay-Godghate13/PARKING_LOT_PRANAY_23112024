@@ -13,9 +13,9 @@ public class OccupiedSlot implements CountSlot {
             for(int j=startIndex;j<endIndex;j++)
             {
                 if(pl[i][j]!=null)
-                list.add(j);
+                list.add(j+1);
             }
-            System.out.println("Occupied slots for "+vehicle.type+ " on Floor "+floor+" : "+list);
+            System.out.println("Occupied slots for "+vehicle.type+ " on Floor "+(i+1)+" : "+list);
             list.clear();
         }
     }

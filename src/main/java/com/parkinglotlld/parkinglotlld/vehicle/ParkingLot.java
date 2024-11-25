@@ -25,56 +25,32 @@ public class ParkingLot implements BuildParking,ParkingLotFeatures {
 
     @Override
     public void freeSlotNo(Vehicle vehicle) {
-        String type=vehicle.type;
-        VehicleCount vehicleCount;
-        switch(type)
-        {
-            case "Car":
-            vehicleCount=new CarCount(3, this.slot, this.floor, pl,new FreeSlotNumber(), vehicle);
-            break;
-            case "Bike":
-            vehicleCount=new BikeCount(1, 3, this.floor, pl,new FreeSlotNumber(), vehicle);
-            break;
-            case "Truck":
-            vehicleCount=new TruckCount(0, 1, this.floor, pl,new FreeSlotNumber(), vehicle);
-            break;
-
-        }
+        slot(new FreeSlotNumber(), vehicle);    
     }
 
     @Override
     public void freeSlot(Vehicle vehicle) {
-        String type=vehicle.type;
-        VehicleCount vehicleCount;
-        switch(type)
-        {
-            case "Car":
-            vehicleCount=new CarCount(3, this.slot, this.floor, pl,new FreeSlot(), vehicle);
-            break;
-            case "Bike":
-            vehicleCount=new BikeCount(1, 3, this.floor, pl,new FreeSlot(), vehicle);
-            break;
-            case "Truck":
-            vehicleCount=new TruckCount(0, 1, this.floor, pl,new FreeSlot(), vehicle);
-            break;
-
-        }
+        slot(new FreeSlot(),vehicle);
     }
 
     @Override
     public void occupiedSlot(Vehicle vehicle) {
+        slot(new OccupiedSlot(), vehicle);
+    }
+    public void slot(CountSlot countSlot,Vehicle vehicle)
+    {
         String type=vehicle.type;
         VehicleCount vehicleCount;
         switch(type)
         {
             case "Car":
-            vehicleCount=new CarCount(3, this.slot, this.floor, pl,new OccupiedSlot(), vehicle);
+            vehicleCount=new CarCount(3, this.slot, this.floor, pl,countSlot, vehicle);
             break;
             case "Bike":
-            vehicleCount=new BikeCount(1, 3, this.floor, pl,new OccupiedSlot(), vehicle);
+            vehicleCount=new BikeCount(1, 3, this.floor, pl,countSlot, vehicle);
             break;
             case "Truck":
-            vehicleCount=new TruckCount(0, 1, this.floor, pl,new OccupiedSlot(), vehicle);
+            vehicleCount=new TruckCount(0, 1, this.floor, pl,countSlot, vehicle);
             break;
 
         }

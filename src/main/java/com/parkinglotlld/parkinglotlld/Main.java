@@ -12,7 +12,7 @@ public class Main {
     public static void main(String args[])
     {
         ParkingLot parkingLot=new ParkingLot();
-        parkingLot.build("PR1234",2,6);
+        parkingLot.build("PR1234",3,6);
         Truck truck1=new Truck("KA-01-DB-1234","RED");
         Truck truck2=new Truck("KA-01-DB-4321","BLACK");
         Truck truck3=new Truck("KA-01-DB-2341","GREY");
@@ -24,7 +24,7 @@ public class Main {
         //parkingLot.freeSlotNo(car1);
         //parkingLot.freeSlotNo(truck1);
         //parkingLot.freeSlot(car1);
-        //parkingLot.freeSlot(truck1);
+        parkingLot.freeSlot(truck1);
         parkingLot.occupiedSlot(car1);
                 
         
