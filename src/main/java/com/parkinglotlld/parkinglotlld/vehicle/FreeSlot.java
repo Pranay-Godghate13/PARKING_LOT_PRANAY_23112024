@@ -12,6 +12,7 @@ public class FreeSlot implements CountSlot {
         List<Integer> list=new ArrayList<>();
         for(int j=startIndex;j<endIndex;j++)
         {
+            if(pl[i][j]==null)
             list.add(j+1);
         }
         System.out.println("Free slots for "+vehicle.type+" on Floor "+(i+1)+" : "+list);

@@ -49,8 +49,11 @@ public class ParkingLot implements BuildParking,ParkingLotFeatures {
     }
 
     @Override
-    public void unPark(Vehicle vehicle) {
-        
+    public void unPark(String Ticket_ID) {
+        String arr[]=Ticket_ID.split("_");
+        int floor=Integer.parseInt(arr[1]);
+        int slot=Integer.parseInt(arr[2]);
+        pl[floor-1][slot-1]=null;
     }
 
     @Override

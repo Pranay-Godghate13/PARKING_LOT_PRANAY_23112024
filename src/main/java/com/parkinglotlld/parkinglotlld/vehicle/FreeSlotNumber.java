@@ -10,6 +10,7 @@ public class FreeSlotNumber implements CountSlot {
             
             for(int j=startIndex;j<endIndex;j++)
             {
+                if(pl[i][j]==null)
                 count++;
             }
             System.out.println("No. of free slots for "+vehicle.type+" on Floor "+(i+1)+" : "+count);

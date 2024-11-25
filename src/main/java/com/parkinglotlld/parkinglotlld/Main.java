@@ -34,7 +34,10 @@ public class Main {
         parkingLot.park(truck3);
         parkingLot.occupiedSlot(truck1);   
         parkingLot.park(truck4);
-        parkingLot.occupiedSlot(car1);        
+        parkingLot.unPark("PR1234_1_1");
+        parkingLot.occupiedSlot(truck1);
+        parkingLot.freeSlot(truck1);
+        parkingLot.freeSlot(car1);
         
         
     }
